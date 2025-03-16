@@ -1,13 +1,18 @@
+<%= turbo_frame_tag "categories" do %>
+    <h1><%= t('.title') %></h1>
 
-<h1><%= t('.title') %></h1>
-
-<%# @products.each do |product| %>
-    <%#= link_to product_path(product), class: 'product' do %>
-        
-        <%#= <h2>product.title </h2>%>
-        <%#= image_tag product.photo, width: 200 if product.photo.attached? %>
-        <%#= <span>product.price $</span>%>
+    <%# @products.each do |product| %>
+        <%#= link_to product_path(product), class: 'product' do %>
+            
+            <%#= <h2>product.title </h2>%>
+            <%#= image_tag product.photo, width: 200 if product.photo.attached? %>
+            <%#= <span>product.price $</span>%>
+        <%# end %>
     <%# end %>
-<%# end %>
-<%= render partial: 'product', collection: @products %>
 
+    <%= link_to t('.all'), products_path %>
+
+    <%= render partial: 'category', collection: @categories %>
+    <%= render partial: 'product', collection: @products %>
+
+<% end %>
