@@ -34,6 +34,11 @@ gem "bootsnap", require: false
 # Postgresql full text search
 gem "pg_search", "~> 2.3"
 
+# pagination
+#gem 'pagy', '~> 9.3' # omit patch digit
+gem "pagy", "~> 5.10"
+#gem 'pagy', '~> 9.3', '>= 9.3.3'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

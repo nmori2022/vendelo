@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "categories" do %>
-    <h1><%= t('.title') %></h1>
+    <h2><%= t('.title') %></h2>
 
     <%# @products.each do |product| %>
         <%#= link_to product_path(product), class: 'product' do %>
@@ -26,9 +26,12 @@
 
     <%= render partial: 'category', collection: @categories %>
 
-    <div class="products">S
+
+        
+    <%= turbo_frame_tag "products-#{@pagy.page}", class: 'products' do %>
         <%= render partial: 'product', collection: @products %>
-    </div>
+        <%= turbo_frame_tag "products-#{@pagy.next}", class: 'products', src: pagy_url_for(@pagy, @pagy.next), loading: :lazy if @pagy.next %>
+    <% end %>
     
 
 <% end %>

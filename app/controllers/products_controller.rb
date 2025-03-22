@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
     def index
-        @categories = Category.all.order(name: :asc).load_async
+        @categories = Category.order(name: :asc).load_async
         @products = Product.all.with_attached_photo
         if params[:category_id]
             @products = @products.where(category_id: params[:category_id])
@@ -14,10 +14,14 @@ class ProductsController < ApplicationController
         if params[:query_text].present?
             @products = @products.search_full_text(params[:query_text])
         end
-        order_by = Product::ORDER_BY.fetch(params[:order_by]&.to_sym, Product::ORDER_BY[:newest]) 
+        
+        order_by = Product::ORDER_BY.fetch(params[:order_by]&.to_sym, Product::ORDER_BY[:newest])
 
         @products = @products.order(order_by).load_async
 
+        @products = @products.order(order_by).load_async
+
+        @pagy, @products = pagy_countless(@products, items: 12)
     end
     def show
        #@product = Product.find(params[:id])
@@ -30,6 +34,7 @@ class ProductsController < ApplicationController
 
     def create
         @product = Product.new(product_params)
+        
         if @product.save
             redirect_to products_path, notice: t('.created')
         else
