@@ -40,7 +40,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     get products_path(order_by: 'cheapest')
     assert_response :success
     assert_select '.product', 12
-    assert_select 'h2', 'PS4 Fat'
+    assert_select '.products .product:first-child h2', 'El hobbit'
   end
 
   test 'render a detailed product page' do
