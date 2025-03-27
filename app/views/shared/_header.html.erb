@@ -2,5 +2,7 @@
   <h1><%= t('app_name') %></h1>
 <% end %>
 
+<%= Current.user.inspect %>
+
 <%= link_to t('.add'), new_product_path %>
 <%= link_to t('.categories'), categories_path %>
