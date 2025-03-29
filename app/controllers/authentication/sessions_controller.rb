@@ -20,6 +20,11 @@ class Authentication::SessionsController < ApplicationController
 
     end
 
+    def destroy
+        session.delete(:user_id)
+        redirect_to products_path, notice: t('.destroyed')
+    end
+
     # private
     #     def user_params
     #         params.require(:user).permit(:email, :username,  :password) 
