@@ -32,6 +32,7 @@ es:
     confirm: '¿Estás seguro?'
     back: 'Volver'
     not_logged_id: 'Necesitas estar registrado para acceder a esta página'
+    not_autorized: 'No tienes permiso para esta acción'
   shared:
     header:
       add: 'Añadir producto'

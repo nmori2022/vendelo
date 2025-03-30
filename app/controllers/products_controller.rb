@@ -51,25 +51,28 @@ class ProductsController < ApplicationController
     end
 
     def edit
+        autorize! product
         #@product = Product.find(params[:id])
-        product
+        #product
     end
 
     def update
-         #@product = Product.find(params[:id])
-         if product.update(product_params)
+        autorize! product
+        #@product = Product.find(params[:id])
+        if product.update(product_params)
             redirect_to products_path, notice: t('.updated')
-         else
+        else
             render :edit, status: :unprocessable_entity
-         end
+        end
     end
 
     def destroy
-         #@product = Product.find(params[:id])
-         #@product.destroy
-         product.destroy
+        autorize! product
+        #@product = Product.find(params[:id])
+        #@product.destroy
+        product.destroy
 
-         redirect_to products_path, notice: t('.destroyed'), status: :see_other
+        redirect_to products_path, notice: t('.destroyed'), status: :see_other
     end
 
      private

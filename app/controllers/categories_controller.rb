@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+
+  before_action :autorize!
+
   def index
     @categories = Category.all.order(name: :asc)
   end

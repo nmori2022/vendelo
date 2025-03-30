@@ -4,6 +4,7 @@ paco:
   email: paco@casys.cl
   username: paco
   password_digest: <%= BCrypt::Password.create('testme', cost: 5) %>
+  admin: true
   
 
 paco02:
