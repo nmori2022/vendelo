@@ -17,8 +17,6 @@ class Product < ApplicationRecord
         expensive: "price DESC",
         cheapest: "price ASC"
         
-        
-        
     }
 
     has_one_attached :photo
@@ -26,4 +24,8 @@ class Product < ApplicationRecord
 
     belongs_to :category
     belongs_to :user, default: -> { Current.user}
+
+    def owner?
+        user_id == Current.user.id
+    end
 end

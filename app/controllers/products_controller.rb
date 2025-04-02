@@ -51,13 +51,13 @@ class ProductsController < ApplicationController
     end
 
     def edit
-        autorize! product
+        authorize! product
         #@product = Product.find(params[:id])
         #product
     end
 
     def update
-        autorize! product
+        authorize! product
         #@product = Product.find(params[:id])
         if product.update(product_params)
             redirect_to products_path, notice: t('.updated')
@@ -67,7 +67,7 @@ class ProductsController < ApplicationController
     end
 
     def destroy
-        autorize! product
+        authorize! product
         #@product = Product.find(params[:id])
         #@product.destroy
         product.destroy
