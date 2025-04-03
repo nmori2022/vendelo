@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :sessions, only: [:new, :create, :destroy], path: '/login', path_names: { new: '/'}
   end
 
-
+  resources :users, only: :show, path: 'user', param: :username
   #resources :categories,  only: [ :index, :new, :create, :update, :destroy ]
   resources :categories, except: :show
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

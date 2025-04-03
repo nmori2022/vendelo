@@ -33,6 +33,7 @@ en:
     back: 'Go back'
     not_logged_id: 'You need to be logged in to access this page'
     not_authorized: 'You do not have permission for this action'
+    common.not_found: 'Not found'
   shared:
     header:
       add: 'Add product'
@@ -66,6 +67,7 @@ en:
     show:
       edit: 'Edit product'
       delete: 'Delete product'
+      view_more_products: 'View more products by %{username}'
     create:
       created: 'Your product has been successfully created'
     update:
