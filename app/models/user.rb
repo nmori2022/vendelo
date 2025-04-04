@@ -16,7 +16,7 @@ class User < ApplicationRecord
     validates :password, presence: true, length: { minimum: 6 }
 
     has_many :products, dependent: :restrict_with_exception    
-
+    has_many :favorites, dependent: :destroy
     before_save :downcase_attributes
 
     private
